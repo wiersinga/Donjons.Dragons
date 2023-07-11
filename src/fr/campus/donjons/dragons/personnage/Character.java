@@ -1,31 +1,136 @@
 package fr.campus.donjons.dragons.personnage;
 
+import fr.campus.donjons.dragons.equipment.DefensiveEquipment;
+import fr.campus.donjons.dragons.equipment.OffensiveEquipment;
+
 import java.util.Scanner;
 
 public class Character {
-    String type;
+   private String type;
     String name;
     int lifeScore;
     int attackStrength;
-    char offensiveEquipment;
-    char defensiveEquipment;
+    OffensiveEquipment offensiveEquipment;
+    DefensiveEquipment defensiveEquipment;
+   // private int attack;
 
-//    public Character(String type) {
-//        this.type = type;
-//    }
+    public void characterInfos() {
+        characterName();
+        characterType();
+        characterAttackStrength();
+        characterLifeScore();
 
-    public void characterName() {
-        Scanner console1 = new Scanner(System.in);
-        System.out.println("Enter your name ");
-        String name =console1.nextLine();
-        System.out.println("you name is " + name);
+        if (type.equals("warrior")){
+            //this.attack=attackStrength;
+            this.offensiveEquipment = new OffensiveEquipment("weapon gold", "weapon",98);
+            this.defensiveEquipment = new DefensiveEquipment("shield gold","shield",10);
+        } else {
+            //this.lifeScore = 6;
+            //this.attack=attackStrength;
+            this.offensiveEquipment = new OffensiveEquipment("double spell", "spell",150);
+            this.defensiveEquipment = new DefensiveEquipment("dangerous potion gold","potion",750);
+        }
+    }
 
-
+    public void characterName(){
         Scanner console2 = new Scanner(System.in);
-        System.out.println("Enter your type");
-        String type =console2.nextLine();
-        System.out.println("you name is " + type);
+        System.out.println("Enter your name ");
+        name =console2.nextLine();
+        System.out.println("your name is " + name);
+    }
+    public void characterType(){
+        while (!type.equals("warrior") && !type.equals("magician")){
+            System.out.println("warrior or magician ? Enter your type");
+            Scanner console1 = new Scanner(System.in);
+            type =console1.nextLine();
+        }
+        System.out.println("your type is " + type);
+    }
+    public void characterAttackStrength() {
+        if (type.equals("warrior")) {
+            while (attackStrength < 5 || attackStrength > 10) {
+                System.out.println("Enter an attackStrength between  5 et 10");
+                Scanner console3 = new Scanner(System.in);
+                attackStrength = console3.nextInt();
+            }
+        } else {
+            while (attackStrength < 8 || attackStrength > 15) {
+                System.out.println("Enter an attackStrength between  8 et 15");
+                Scanner console3 = new Scanner(System.in);
+                attackStrength = console3.nextInt();
+            }
+        }
+        System.out.println("your attackStrength is :" + attackStrength);
+    }
+    public void characterLifeScore() {
+        if (type.equals("warrior")) {
+            while (lifeScore < 5 || lifeScore> 10) {
+                System.out.println("Enter an lifeScore between  5 et 10");
+                Scanner console4 = new Scanner(System.in);
+                lifeScore = console4.nextInt();
+            }
+        } else {
+            while (lifeScore < 3 || lifeScore > 6) {
+                System.out.println("Enter an lifeScore between  3 et 6");
+                Scanner console4 = new Scanner(System.in);
+                lifeScore = console4.nextInt();
+            }
+        }
 
+        System.out.println("your lifeScore is :" + lifeScore);
+    }
+
+    public Character(String type, String name){
+        this.type=type;
+        this.name=name;
+    }
+
+    public String getType() {
+         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLifeScore() {
+        return lifeScore;
+    }
+
+    public void setLifeScore(int lifeScore) {
+        this.lifeScore = lifeScore;
+    }
+
+    public int getAttackStrength() {
+        return attackStrength;
+    }
+
+    public void setAttackStrength(int attackStrength) {
+        this.attackStrength = attackStrength;
+    }
+
+    public OffensiveEquipment getOffensiveEquipment() {
+        return offensiveEquipment;
+    }
+
+    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
+        this.offensiveEquipment = offensiveEquipment;
+    }
+
+    public DefensiveEquipment getDefensiveEquipment() {
+        return defensiveEquipment;
+    }
+
+    public void setDefensiveEquipment(DefensiveEquipment defensiveEquipment) {
+        this.defensiveEquipment = defensiveEquipment;
     }
 
     @Override
@@ -39,18 +144,4 @@ public class Character {
                 ", defensiveEquipment=" + defensiveEquipment +
                 '}';
     }
-
-
-    public  Character(){
-
-    }
-
-    public Character(String name, String type){
-        this.name=name;
-        this.type=type;
-    }
-
-
-
-
 }
