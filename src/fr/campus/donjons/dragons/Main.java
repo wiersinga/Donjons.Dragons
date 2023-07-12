@@ -1,9 +1,11 @@
 package fr.campus.donjons.dragons;
-import fr.campus.donjons.dragons.vue.Menu;
+
+import fr.campus.donjons.dragons.jouer.Game;
 public class Main {
     public static void main(String[] argv){
-      Menu showMenu = new Menu();
-      showMenu.menu();
-      System.out.println(showMenu);
-    }
+        Game showGame = new Game();
+        showGame.game();
+        System.out.println(showGame);
+        }
+
 }

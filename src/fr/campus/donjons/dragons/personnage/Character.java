@@ -1,32 +1,28 @@
 package fr.campus.donjons.dragons.personnage;
-
 import fr.campus.donjons.dragons.equipment.DefensiveEquipment;
 import fr.campus.donjons.dragons.equipment.OffensiveEquipment;
-
 import java.util.Scanner;
 
 public class Character {
-   private String type;
-    String name;
+   public String type;
+    public String name;
     int lifeScore;
     int attackStrength;
     OffensiveEquipment offensiveEquipment;
     DefensiveEquipment defensiveEquipment;
-   // private int attack;
 
     public void characterInfos() {
         characterName();
         characterType();
-        characterAttackStrength();
-        characterLifeScore();
 
         if (type.equals("warrior")){
-            //this.attack=attackStrength;
+            this.lifeScore=10;
+            this.attackStrength=10;
             this.offensiveEquipment = new OffensiveEquipment("weapon gold", "weapon",98);
             this.defensiveEquipment = new DefensiveEquipment("shield gold","shield",10);
         } else {
-            //this.lifeScore = 6;
-            //this.attack=attackStrength;
+            this.lifeScore = 6;
+            this.attackStrength=15;
             this.offensiveEquipment = new OffensiveEquipment("double spell", "spell",150);
             this.defensiveEquipment = new DefensiveEquipment("dangerous potion gold","potion",750);
         }
@@ -39,48 +35,48 @@ public class Character {
         System.out.println("your name is " + name);
     }
     public void characterType(){
-        while (!type.equals("warrior") && !type.equals("magician")){
+        while (type==null || (!type.equals("warrior") && !type.equals("magician"))){
             System.out.println("warrior or magician ? Enter your type");
             Scanner console1 = new Scanner(System.in);
             type =console1.nextLine();
         }
         System.out.println("your type is " + type);
     }
-    public void characterAttackStrength() {
-        if (type.equals("warrior")) {
-            while (attackStrength < 5 || attackStrength > 10) {
-                System.out.println("Enter an attackStrength between  5 et 10");
-                Scanner console3 = new Scanner(System.in);
-                attackStrength = console3.nextInt();
-            }
-        } else {
-            while (attackStrength < 8 || attackStrength > 15) {
-                System.out.println("Enter an attackStrength between  8 et 15");
-                Scanner console3 = new Scanner(System.in);
-                attackStrength = console3.nextInt();
-            }
-        }
-        System.out.println("your attackStrength is :" + attackStrength);
-    }
-    public void characterLifeScore() {
-        if (type.equals("warrior")) {
-            while (lifeScore < 5 || lifeScore> 10) {
-                System.out.println("Enter an lifeScore between  5 et 10");
-                Scanner console4 = new Scanner(System.in);
-                lifeScore = console4.nextInt();
-            }
-        } else {
-            while (lifeScore < 3 || lifeScore > 6) {
-                System.out.println("Enter an lifeScore between  3 et 6");
-                Scanner console4 = new Scanner(System.in);
-                lifeScore = console4.nextInt();
-            }
-        }
+//    public void characterAttackStrength() {
+//        if (type.equals("warrior")) {
+//            while (attackStrength < 5 || attackStrength > 10) {
+//                System.out.println("Enter an attackStrength between  5 et 10");
+//                Scanner console3 = new Scanner(System.in);
+//                attackStrength = console3.nextInt();
+//            }
+//        } else {
+//            while (attackStrength < 8 || attackStrength > 15) {
+//                System.out.println("Enter an attackStrength between  8 et 15");
+//                Scanner console3 = new Scanner(System.in);
+//                attackStrength = console3.nextInt();
+//            }
+//        }
+//        System.out.println("your attackStrength is :" + attackStrength);
+//    }
+//    public void characterLifeScore() {
+//        if (type.equals("warrior")) {
+//            while (lifeScore < 5 || lifeScore> 10) {
+//                System.out.println("Enter an lifeScore between  5 et 10");
+//                Scanner console4 = new Scanner(System.in);
+//                lifeScore = console4.nextInt();
+//            }
+//        } else {
+//            while (lifeScore < 3 || lifeScore > 6) {
+//                System.out.println("Enter an lifeScore between  3 et 6");
+//                Scanner console4 = new Scanner(System.in);
+//                lifeScore = console4.nextInt();
+//            }
+//        }
+//
+//        System.out.println("your lifeScore is :" + lifeScore);
+//    }
 
-        System.out.println("your lifeScore is :" + lifeScore);
-    }
-
-    public Character(String type, String name){
+    public Character(){
         this.type=type;
         this.name=name;
     }
@@ -135,13 +131,13 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "type='" + type + '\'' +
-                ", name='" + name + '\'' +
-                ", lifeScore=" + lifeScore +
-                ", attackStrength=" + attackStrength +
-                ", offensiveEquipment=" + offensiveEquipment +
-                ", defensiveEquipment=" + defensiveEquipment +
+        return " this is your Character{" +
+                "\ntype='" + type + '\'' +
+                ", \nname='" + name + '\'' +
+                ", \nlifeScore=" + lifeScore +
+                ", \nattackStrength=" + attackStrength +
+                ", \n" + offensiveEquipment +
+                ", \n" + defensiveEquipment +
                 '}';
     }
 }
