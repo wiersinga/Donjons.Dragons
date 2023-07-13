@@ -4,17 +4,20 @@ import fr.campus.donjons.dragons.equipment.OffensiveEquipment;
 import java.util.Scanner;
 
 public class Character {
-   public String type;
-    public String name;
-    int lifeScore;
-    int attackStrength;
+    private String type;
+    private String name;
+    private int lifeScore;
+    private int attackStrength;
     OffensiveEquipment offensiveEquipment;
     DefensiveEquipment defensiveEquipment;
+
+
+
+
 
     public void characterInfos() {
         characterName();
         characterType();
-
         if (type.equals("warrior")){
             this.lifeScore=10;
             this.attackStrength=10;
