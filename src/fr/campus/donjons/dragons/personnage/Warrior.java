@@ -6,7 +6,7 @@ import fr.campus.donjons.dragons.equipment.ofensive.Weapon;
 public class Warrior extends Character{
 
     public Warrior(String name) {
-        super(name, 10, 10, new Weapon(), new Shield());
+        super(name, 10, 10, new Weapon("weapon",10), new Shield("gold shield", 40));
 
     }
 

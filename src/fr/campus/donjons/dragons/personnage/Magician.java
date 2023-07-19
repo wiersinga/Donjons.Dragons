@@ -7,8 +7,7 @@ public class Magician extends Character{
     public Magician(String name){
         super(name,
                 6,
-                15, new Spell(), new Potion());
-
+                15, new Spell("power spell", 15), new Potion("potion",20));
     }
 
     @Override

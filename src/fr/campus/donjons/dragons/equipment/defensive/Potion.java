@@ -1,11 +1,9 @@
 package fr.campus.donjons.dragons.equipment.defensive;
 
-import fr.campus.donjons.dragons.equipment.defensive.DefensiveEquipment;
-
 public class Potion extends DefensiveEquipment {
-    public Potion() {
+    public Potion(String name, int score) {
 
-        super("potion", 20);
+        super(name,score);
     }
 
 //    @Override

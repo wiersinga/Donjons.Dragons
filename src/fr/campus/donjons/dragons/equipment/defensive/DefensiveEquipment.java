@@ -1,14 +1,14 @@
 package fr.campus.donjons.dragons.equipment.defensive;
 
-public class DefensiveEquipment {
-    String name;
-   // String type;
-    int defensifScore;
+import fr.campus.donjons.dragons.equipment.items.Item;
 
-    public DefensiveEquipment(String name, int defensifScore) {
+public class DefensiveEquipment extends Item {
+   // String name;
+   // int defensifScore;
+
+    public DefensiveEquipment(String name, int score) {
         this.name = name;
-       // this.type = type;
-        this.defensifScore = defensifScore;
+        this.score = score;
     }
 
 
@@ -17,7 +17,7 @@ public class DefensiveEquipment {
     public String toString() {
         return "DefensiveEquipment{" +
                 "name='" + name + '\'' +
-                ", defensifScore=" + defensifScore +
+                ", defensifScore=" + score +
                 '}';
     }
 }
