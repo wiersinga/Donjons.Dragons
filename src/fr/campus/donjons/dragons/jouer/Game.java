@@ -1,10 +1,12 @@
 package fr.campus.donjons.dragons.jouer;
 
+import fr.campus.donjons.dragons.Cases.EmptyCase;
+import fr.campus.donjons.dragons.Cases.EnemyCase;
+import fr.campus.donjons.dragons.Cases.ItemCase;
 import fr.campus.donjons.dragons.interfaces.ICaseGeneral;
 import fr.campus.donjons.dragons.personnage.Character;
 import fr.campus.donjons.dragons.personnage.Magician;
 import fr.campus.donjons.dragons.personnage.Warrior;
-import fr.campus.donjons.dragons.personnage.enemies.Enemy;
 import fr.campus.donjons.dragons.vue.Menu;
 
 import java.util.ArrayList;
@@ -12,9 +14,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-   public int[] board = new int[64];
+    public boolean isEmpty() {
+        return false;
+    }
+
+    public int[] board = new int[64];
     Character playerOne;
-    //private ArrayList<Object> array;
 
     public void createPlayer() {
         Menu characterMenu = new Menu();
@@ -57,31 +62,66 @@ public class Game {
             getChoiceMenu();
         }
     }
-    public void letsDice(){
+    public int letsDice() {
+        Random rand = new Random();
+        int maxRandom = 6;
+        int number = rand.nextInt(maxRandom) + 1;
+        return number;
+    }
+public void fightGame(){
 
-    }
-    public void fillBoard(){
-        ArrayList<ICaseGeneral> board = new ArrayList<>();
+}
+public void getSurprise(){
+if (playerOne.equals("warrior") && ){
+
+}
+
+}
+    public ArrayList<ICaseGeneral> fillBoard() {
+        ArrayList<ICaseGeneral> gBoard = new ArrayList<>();
         Random x = new Random();
-       // int randIndex = x.nextInt(62)+2;
-        for (int i = 0; i < board.size(); i++){
-            board.add( x.nextInt(20)+2, (ICaseGeneral) new Enemy("goblin",2,9));
+        for (int i = 0; i < 64; i++) {
+            int caseRandom = x.nextInt(3);
+            if (caseRandom == 0) {
+                gBoard.add(new EmptyCase());
+            } else if (caseRandom == 1) {
+                gBoard.add(new EnemyCase());
+            } else {
+                gBoard.add(new ItemCase());
+            }
         }
+        return gBoard;
     }
-    public void startGame(){
+
+    public void startGame() {
+       ArrayList gameBoard = fillBoard();
+        System.out.println(gameBoard);
         Random rand = new Random();
         int maxRandom = 6;
         int playerPosition = board[0] + 1;
         while (board.length >= playerPosition) {
-            int dice = rand.nextInt(maxRandom) + 1;
-            System.out.println("your dice is " + dice);
-            playerPosition += dice;
-            System.out.println("your position is " + playerPosition);
+           for (int i=0; i<gameBoard.size(); i++){
+               if (gameBoard.get(i) instanceof EmptyCase) {
+                   int dice = letsDice();
+                   i+=dice;
+               } else if (gameBoard.get(i) instanceof EnemyCase) {
+                   fightGame();
+               } else {
+                   getSurprise();
+               }
 
-        }
-        System.out.println("you arrived ! Bravo");
+
+           }
+            //int dice = rand.nextInt(maxRandom) + 1;
+//            System.out.println("your dice is " + dice);
+//            playerPosition += dice;
+//            System.out.println("your position is " + playerPosition);
+//        }
+//        System.out.println("you arrived ! Bravo");
     }
-    public void getThirdChoice(){
+    }
+
+    public void getThirdChoice() {
         String thirdChoice = null;
         while (thirdChoice == null || (!thirdChoice.equals("2") && !thirdChoice.equals("1"))) {
             System.out.println("1.restart or 2.exit the Game ?");
@@ -97,6 +137,7 @@ public class Game {
             getChoiceMenu();
         }
     }
+
     public void dicePlay() {
         if (playerOne != null) {
             startGame();
@@ -109,6 +150,7 @@ public class Game {
             getChoiceMenu();
         }
     }
+
 }
 
 

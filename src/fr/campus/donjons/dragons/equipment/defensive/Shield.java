@@ -5,11 +5,8 @@ public class Shield extends DefensiveEquipment {
         super(name,score);
     }
 
-//    @Override
-//    public String toString() {
-//        return "Shield{" +
-//                "name='" + name + '\'' +
-//                ", defensifScore=" + defensifScore +
-//                '}';
-//    }
+    public Shield() {
+
+        super("shield ",6);
+    }
 }

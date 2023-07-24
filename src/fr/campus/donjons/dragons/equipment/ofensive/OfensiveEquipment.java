@@ -3,11 +3,12 @@ package fr.campus.donjons.dragons.equipment.ofensive;
 import fr.campus.donjons.dragons.equipment.items.Item;
 
 public class OfensiveEquipment extends Item {
-       //String name;
-    //int attackScore;
+
     public OfensiveEquipment(String name, int score) {
-        this.name = name;
-        this.score = score;
+        super(name, score);
+
+    }
+    public OfensiveEquipment() {
     }
 
     @Override
@@ -17,5 +18,6 @@ public class OfensiveEquipment extends Item {
                 ", attackScore=" + score +
                 '}';
     }
+
 }
 
