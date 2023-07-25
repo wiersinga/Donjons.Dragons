@@ -25,11 +25,20 @@ public class ItemCase implements ICaseGeneral {
         }
     }
 
+    public void Warrior(){
+
+    }
+
     @Override
-    public void action() {
+    public void action(){
 
 
     }
 
-
+    @Override
+    public String toString() {
+        return "ItemCase{" +
+                "item=" + item +
+                '}';
+    }
 }

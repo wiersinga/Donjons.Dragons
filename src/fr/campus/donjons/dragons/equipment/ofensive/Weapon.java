@@ -12,11 +12,15 @@ public class Weapon extends OfensiveEquipment {
         } else {
            this.weapon= new Weapon("Epée", 5);
         }
-
     }
+
+
     public Weapon(String name, int score){
+
         super(name, score);
     }
+
+
 
 
 

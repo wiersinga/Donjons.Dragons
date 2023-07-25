@@ -34,8 +34,35 @@ public class Character {
         this.name = name;
     }
 
+    public int getAttackStrength() {
+        return attackStrength;
+    }
 
+    public void setAttackStrength(int attackStrength) {
+        this.attackStrength = attackStrength;
+    }
 
+    public int getLifeScore() {
+        return lifeScore;
+    }
 
+    public void setLifeScore(int lifeScore) {
+        this.lifeScore = lifeScore;
+    }
 
+    public OfensiveEquipment getOfensiveEquipment() {
+        return ofensiveEquipment;
+    }
+
+    public void setOfensiveEquipment(OfensiveEquipment ofensiveEquipment) {
+        this.ofensiveEquipment = ofensiveEquipment;
+    }
+
+    public DefensiveEquipment getDefensiveEquipment() {
+        return defensiveEquipment;
+    }
+
+    public void setDefensiveEquipment(DefensiveEquipment defensiveEquipment) {
+        this.defensiveEquipment = defensiveEquipment;
+    }
 }

@@ -5,4 +5,13 @@ public class Goblin extends Enemy{
 
         super("goblin", 1, 6);
     }
+
+    @Override
+    public String toString() {
+        return "Goblin{" +
+                "nameEnemy='" + nameEnemy + '\'' +
+                ", attackEnemy=" + attackEnemy +
+                ", lifeEnemy=" + lifeEnemy +
+                '}';
+    }
 }

@@ -28,7 +28,10 @@ public class EnemyCase implements ICaseGeneral {
 
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "EnemyCase{" +
+                "enemy=" + enemy +
+                '}';
+    }
 }

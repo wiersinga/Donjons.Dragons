@@ -62,21 +62,22 @@ public class Game {
             getChoiceMenu();
         }
     }
+
     public int letsDice() {
         Random rand = new Random();
         int maxRandom = 6;
         int number = rand.nextInt(maxRandom) + 1;
         return number;
     }
-public void fightGame(){
 
-}
-public void getSurprise(){
-if (playerOne.equals("warrior") && ){
+    public void fightGame() {
 
-}
+    }
 
-}
+    public void getSurprise() {
+
+    }
+
     public ArrayList<ICaseGeneral> fillBoard() {
         ArrayList<ICaseGeneral> gBoard = new ArrayList<>();
         Random x = new Random();
@@ -94,31 +95,32 @@ if (playerOne.equals("warrior") && ){
     }
 
     public void startGame() {
-       ArrayList gameBoard = fillBoard();
+        ArrayList gameBoard = fillBoard();
+        int length = gameBoard.size();
         System.out.println(gameBoard);
         Random rand = new Random();
         int maxRandom = 6;
         int playerPosition = board[0] + 1;
-        while (board.length >= playerPosition) {
-           for (int i=0; i<gameBoard.size(); i++){
-               if (gameBoard.get(i) instanceof EmptyCase) {
-                   int dice = letsDice();
-                   i+=dice;
-               } else if (gameBoard.get(i) instanceof EnemyCase) {
-                   fightGame();
-               } else {
-                   getSurprise();
-               }
+        while (length >= playerPosition) {
+            for (int i = 0; i < gameBoard.size(); i++) {
+                if (gameBoard.get(i) instanceof EmptyCase) {
+                    int dice = letsDice();
+                    i += dice;
+                } else if (gameBoard.get(i) instanceof EnemyCase) {
+                    fightGame();
+                } else {
+                    getSurprise();
+                }
 
 
-           }
+            }
             //int dice = rand.nextInt(maxRandom) + 1;
 //            System.out.println("your dice is " + dice);
 //            playerPosition += dice;
 //            System.out.println("your position is " + playerPosition);
 //        }
 //        System.out.println("you arrived ! Bravo");
-    }
+        }
     }
 
     public void getThirdChoice() {
@@ -150,6 +152,7 @@ if (playerOne.equals("warrior") && ){
             getChoiceMenu();
         }
     }
+
 
 }
 

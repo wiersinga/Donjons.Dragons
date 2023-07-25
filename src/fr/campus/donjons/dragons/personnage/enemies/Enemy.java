@@ -12,4 +12,13 @@ public class Enemy {
 
     }
 
+    @Override
+    public String toString() {
+        return "Enemy{" +
+                "nameEnemy='" + nameEnemy + '\'' +
+                ", attackEnemy=" + attackEnemy +
+                ", lifeEnemy=" + lifeEnemy +
+                '}';
+    }
+
 }

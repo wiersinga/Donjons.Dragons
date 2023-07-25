@@ -5,10 +5,15 @@ import fr.campus.donjons.dragons.equipment.ofensive.Weapon;
 
 public class Warrior extends Character{
 
+
+
     public Warrior(String name) {
         super(name, 10, 10, new Weapon("weapon",4), new Shield("shield",6));
 
     }
+
+
+
 
     @Override
     public String toString() {
@@ -18,4 +23,6 @@ public class Warrior extends Character{
                 ",\n  " + defensiveEquipment +
                 '}';
     }
+
+
 }
