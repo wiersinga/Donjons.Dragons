@@ -4,26 +4,47 @@ import java.sql.*;
 
 public class DataBaseClass {
     public DataBaseClass() {
-        //Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/DonjonsEtDragons","root","password");
-        Connection con;
+
+    }
+    public void dataBaseClass() {
+        Connection conn;
         {
             try {
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/DonjonsEtDragons", "root", "password");
-                Statement stm = con.createStatement();
-                ResultSet res = stm.executeQuery("select ID, Type from Character");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DonjonsEtDragons", "root", "password");
+                Statement stm = conn.createStatement();
+                ResultSet res = stm.executeQuery("SELECT `ID` FROM `Character`");
                 while (res.next()) {
-                    System.out.println("id:" + res.getString(1) + ", type:" + res.getString(2));
-                    System.out.println("-------------------");
+                    System.out.println("id:" + res.getString(1));
+                    //System.out.println("-------------------");
                 }
-                con.close();
+                conn.close();
             } catch (Exception e) {
                 System.out.println("ERROR :" + e.getMessage());
             }
         }
 
     }
-    @Override
-    public String toString () {
-        return "DataBaseClass{}";
+//    public void insertIntoDb(){
+//        try {
+//            String sql1 = "INSERT INTO `Character`"+"VALUES ("
+//
+//        }
+//    }
+
+
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+        DataBaseClass dbConnexion = new DataBaseClass();
+        dbConnexion.dataBaseClass();
+        System.out.println(dbConnexion);
     }
 }
+
+
+
